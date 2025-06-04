@@ -61,14 +61,17 @@ void switch_app() {
 
 void setup()
 {
+    Serial.begin(115200);
+    Serial.println("start");
+
     next_app = current_app;
     if (zauberstab_init() != 0) {
         return;
     }
-    Serial.begin(115200);
 
     init_successfull = true;
     apps[current_app].get().init();
+    Serial.println("setup completed");
 }
 
 void loop()
@@ -78,16 +81,20 @@ void loop()
     }
 
     if (acc_has_event()) {
+        // Serial.println("acc has event");
         String axes = myAcc.getActTapStatusAsString();
         byte intSource = myAcc.readAndClearInterrupts();
 
         if (myAcc.checkInterrupt(intSource, ADXL345_DOUBLE_TAP)) {
             switch_app();
+            Serial.println("double tap detected");
         }
     }
 
     if (next_app != current_app)
     {
+        Serial.print("app: ");
+        Serial.println(next_app);
         apps[current_app].get().deinit();
         apps[next_app].get().init();
         current_app = next_app;

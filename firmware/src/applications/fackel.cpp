@@ -134,7 +134,7 @@ void FackelApp::loop()
         //Serial.println(string);
 
         Serial.print(rms_avg);
-        Serial.print(",");
+        Serial.print("    ");
         Serial.println(e_f);
 
         if (rms > 1.15 * e_f)

@@ -51,6 +51,7 @@ int zauberstab_init()
     myAcc.setInterrupt(ADXL345_DOUBLE_TAP, INT_PIN_1);
     attachInterrupt(digitalPinToInterrupt(PIN_ACC_INT), double_tab_int, RISING);
 
+    Serial.println("ADXL345 init completed");
     return 0;
 }
 
