@@ -12,11 +12,15 @@
 #include <ADXL345_WE.h>
 
 #define ADXL345_I2CADDR 0x53  // 0x1D if SDO = HIGH
+#define PIN_SDA 21
+#define PIN_SCL 22
+#define PIN_ACC_INT GPIO_NUM_4
 
 #define LED_PIN1 12
 #define LED_PIN2 14
 #define LED_PIN3 27
 #define NUM_LEDS 48
+
 #define MIC_PIN 15
 
 extern CRGB leds[NUM_LEDS];

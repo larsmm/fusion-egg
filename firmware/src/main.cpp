@@ -49,7 +49,7 @@ void switch_app() {
         FastLED.show();
 
         //configure wakeup source
-        esp_sleep_enable_ext0_wakeup(GPIO_NUM_4, 1);
+        esp_sleep_enable_ext0_wakeup(PIN_ACC_INT, 1);
         
         //bedtime
         sleep_active = true;

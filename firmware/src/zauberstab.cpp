@@ -32,7 +32,7 @@ int zauberstab_init()
     FastLED.addLeds<WS2812, LED_PIN2, GRB>(leds, NUM_LEDS);
     FastLED.addLeds<WS2812, LED_PIN3, GRB>(leds, NUM_LEDS);
 
-    Wire.begin();
+    Wire.begin(PIN_SDA, PIN_SCL);
     if (!myAcc.init()){
         Serial.println("Ooops, no ADXL345 detected ... Check your wiring!");
         return -1;
@@ -43,7 +43,7 @@ int zauberstab_init()
     myAcc.setGeneralTapParameters(ADXL345_XY0, 5.0, 50, 100.0);
     myAcc.setAdditionalDoubleTapParameters(false, 250);
     myAcc.setInterrupt(ADXL345_DOUBLE_TAP, INT_PIN_1);
-    attachInterrupt(digitalPinToInterrupt(4), double_tab_int, RISING);
+    attachInterrupt(digitalPinToInterrupt(PIN_ACC_INT), double_tab_int, RISING);
 
     return 0;
 }
