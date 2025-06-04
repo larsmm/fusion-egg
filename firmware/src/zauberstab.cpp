@@ -28,9 +28,15 @@ bool acc_has_event() {
 
 int zauberstab_init()
 {
+#ifdef LED_PIN_DATA
+    FastLED.addLeds<SK9822, LED_PIN_DATA, LED_PIN_CLOCK, BGR, DATA_RATE_MHZ(12)>(leds, NUM_LEDS);
+#endif
+
+#ifdef LED_PIN1
     FastLED.addLeds<WS2812, LED_PIN1, GRB>(leds, NUM_LEDS);
     FastLED.addLeds<WS2812, LED_PIN2, GRB>(leds, NUM_LEDS);
     FastLED.addLeds<WS2812, LED_PIN3, GRB>(leds, NUM_LEDS);
+#endif
 
     Wire.begin(PIN_SDA, PIN_SCL);
     if (!myAcc.init()){

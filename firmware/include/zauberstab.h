@@ -16,9 +16,15 @@
 #define PIN_SCL 22
 #define PIN_ACC_INT GPIO_NUM_4
 
-#define LED_PIN1 12
-#define LED_PIN2 14
+// 4-Pin SK9822 LEds:
+// #define LED_PIN_CLOCK 16
+// #define LED_PIN_DATA 17
+
+// 3-Pin WS28x or SK6812 LEDs:
+#define LED_PIN1 32
+#define LED_PIN2 25
 #define LED_PIN3 27
+
 #define NUM_LEDS 48
 
 #define MIC_PIN 15
