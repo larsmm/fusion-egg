@@ -56,6 +56,16 @@ Connect all electronics as showed here:
 ### Software
 Build the sofware inside the firmware folder with PlatformIO. If you need to change the pin assignment for the leds or the microphone, you can find the definitions inside firmware/include/zauberstab.h. Don't forget to flash your eggs.
 
+### Upload / Flash
+- Install [VS Code](https://code.visualstudio.com/) and open the `firmware` folder. The PlatformIO extension will install automatically.
+- Select your board environment (e.g. `env:nodemcu32s-usb`) from the bottom toolbar in VS Code.
+- **USB Upload (`-usb`)**  
+  Use this for the initial flash. Connect the device via USB and click the **Upload** button in the bottom toolbar.  
+  > Some boards may require holding the **BOOT** button while powering on.
+- **WiFi OTA Upload (`-ota`)**  
+  After the initial USB flash, you can upload via WiFi. To enter OTA mode, place the egg upside down and power it on — it will blink 3 times to signal it's ready.  
+  Connect to the WiFi **FusionEgg-OTA** (password: `12345678`) and press **Upload** in the bottom toolbar.
+
 ## License
 All software is licensed under GPLv2. Hardware is licensed under CC BY-NC-SA. Contact us for commercial use.
 
