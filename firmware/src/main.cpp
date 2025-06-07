@@ -167,6 +167,9 @@ void loop()
         Serial.print("app: ");
         Serial.println(next_app);
         apps[current_app].get().deinit();
+        delay(500);
+        blinkAllLeds(CRGB::White, next_app + 1, 200, 200, 50, 3);
+        delay(1000);
         apps[next_app].get().init();
         current_app = next_app;
         fadeToBlackBy(leds, NUM_LEDS, 0xFF);
