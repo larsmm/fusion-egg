@@ -11,25 +11,27 @@
 #include <WiFi.h>
 #include <ArduinoOTA.h>
 #include <FastLED.h>
+#include "fade_led_app.h"
+#include "fade_led_phase_app.h"
 
-struct BeatDetectApp beat_detect_app
-{
-};
-
-struct QuarterApp quarter_app
-{
-};
-
-struct FackelApp fackel_app
-{
-};
-
-
+struct BeatDetectApp beat_detect_app{};
+struct QuarterApp quarter_app{};
+struct FackelApp fackel_app{};
+FadeLedApp fade_led1_app(LED1_PIN, 0, 5000, 20, 200);  // 665nm Tiefrot
+FadeLedApp fade_led2_app(LED2_PIN, 1, 5000, 20, 255);  // 415nm Würmchenblau
+FadeLedPhaseApp fade_led_phase_app1(LED1_PIN, 0, LED2_PIN, 1, 30000, 0, 210, 0, 255); // LED1 und LED2 mit 180° Phasenversatz
+FadeLedPhaseApp fade_led_phase_app2(LED1_PIN, 0, LED2_PIN, 1,  5000, 0, 210, 0, 255); // LED1 und LED2 mit 180° Phasenversatz
+FadeLedPhaseApp fade_led_phase_app3(LED1_PIN, 0, LED2_PIN, 1,  1000, 0, 210, 0, 255); // LED1 und LED2 mit 180° Phasenversatz
 
 std::vector<std::reference_wrapper<App>> apps = {
     std::ref<App>(beat_detect_app),
     std::ref<App>(fackel_app),
-    std::ref<App>(quarter_app),
+    std::ref<App>(quarter_app)
+    // std::ref<App>(fade_led1_app),
+    // std::ref<App>(fade_led2_app),
+    // std::ref<App>(fade_led_phase_app1),
+    // std::ref<App>(fade_led_phase_app2),
+    // std::ref<App>(fade_led_phase_app3)
     };
 
 static unsigned int current_app = 0;

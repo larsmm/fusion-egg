@@ -38,6 +38,12 @@ int zauberstab_init()
     FastLED.addLeds<WS2812, LED_PIN3, GRB>(leds, NUM_LEDS);
 #endif
 
+    // Set single LED pins as output and turn them off initially
+    pinMode(LED1_PIN, OUTPUT);
+    digitalWrite(LED1_PIN, LOW);
+    pinMode(LED2_PIN, OUTPUT);
+    digitalWrite(LED2_PIN, LOW);
+
     Wire.begin(PIN_SDA, PIN_SCL);
     if (!myAcc.init()){
         Serial.println("Ooops, no ADXL345 detected ... Check your wiring!");

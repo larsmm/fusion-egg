@@ -34,6 +34,11 @@ The following parts are needed:
 - Two colors of PLA (light and dark color)
 - Cable-ties
 
+### Optional: LEDs for Indirect Illumination Inside the Egg
+For an eye-catching glow effect, you can add high-power (5–10W) LEDs inside the egg. This works best if you do not use the internal skeleton and instead print the vase with thicker walls for added strength. The entire egg will softly illuminate, creating a beautiful visual effect.
+I used two LEDs with special red and blue wavelengths. However, you can expand this setup to use RGB or RGBW LEDs if you prefer full-color lighting.
+To power the LEDs, I used a step-up converter to generate ~20V for a series of six LEDs. The 20V are PWM-controlled using an N-channel MOSFET.
+
 ### 3D Printing
 For the three stripe version you have to print the following files:
 - cad_3stripes/vase.stl (Vase-Mode)

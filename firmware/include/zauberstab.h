@@ -20,13 +20,18 @@
 // #define LED_PIN_CLOCK 16
 // #define LED_PIN_DATA 17
 
-// 3-Pin WS28x or SK6812 LEDs:
+// 3-Pin WS28x or SK6812 LEDs (all LED-Strips will get the same signal!):
 #define LED_PIN1 32
 #define LED_PIN2 25
 #define LED_PIN3 27
 
 #define NUM_LEDS 48
 
+// Additional single LEDs driven by mosfet for inside illumination:
+#define LED1_PIN 25
+#define LED2_PIN 27
+
+// Pin for analog microphone input:
 #define MIC_PIN 15
 
 extern CRGB leds[NUM_LEDS];
